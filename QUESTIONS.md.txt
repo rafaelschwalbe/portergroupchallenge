@@ -1,0 +1,20 @@
+1. Como você implementou a função que retorna a representação por extenso
+do número no desafio 1? Quais foram os principais desafios encontrados?
+
+Inicialmente pensei em tratar 3 a 3 algarismos, começando da direita para a esquerda e adicionando um tratamento para adicionar as referências de grandeza(mil, milhão, bilhão), criando um método que geraria o texto por extenso correspondente de 0 a 999, e mais um método auxiliar para adicionar a referência de grandeza. Ao pesquisar na internet considerei mais objetivo ir resolvendo caso a caso de acordo com a grandeza do parâmetro de entrada. Criei arrays referentes a unidades, dezenas, centenas e milhares e fui criando caminhos de acordo com os casos de teste que considerei necessários, utilizando divisão e o operador de resto de divisão para identificar o índice correspondente no array. Tratei os números de 11 a 19 juntamente com as unidades, pois a lógica de juntar o texto referente a dezena e a unidade não funciona para esses números. Para os números maiores que 100 utilizei recursão, obtendo inicialmente o texto referente a centena e após realizando uma chamada recursiva para obter o texto restante. Para os números maiores que 1000 precisei adicionar mais uma camada de recursão, que permitiu o correto funcionamento para valores até 1 bilhão(estou considerando adicionar mais uma camada ainda para trabalhar com valores até o int.MaxValue). Adicionei if específico para o número 100 não ficar com retorno "cento", outro para o valor máximo e mais uma informando que o valor de entrada não é suportado.
+
+2. Como você lidou com a performance na implementação do desafio 2,
+considerando que o array pode ter até 1 milhão de números?
+
+Performance não me pareceu um problema dessa função, o retorno em todos os testes foi em milisegundos, o que pode ocorrer com essa função é o valor da soma ultrapassar o long.MaxValue causando uma overflow exception. Criei casos de teste controlando o valor da soma, e também forçando a overflow exception e ainda validando o tamanho máximo do array de entrada.
+
+3. Como você lidou com os possíveis erros de entrada na implementação do
+desafio 3, como uma divisão por zero ou uma expressão inválida?
+
+Assumi que a expressão não incluiria divisão e que a string de entrada chegaria sempre no formato esperado, separando os valores e operadores sempre com um espaço em branco. Se conseguir tempo vou adicionar essas validações e suporte a divisão.
+
+4. Como você implementou a função que remove objetos repetidos na
+implementação do desafio 4? Quais foram os principais desafios
+encontrados?
+
+Ao ler a primeira vez a descrição imaginei exatamente a função Distinct, mas ao reler e perceber que o retorno esperado remove os valores duplicados, e não somente o item em duplicidade, criei uma nova lista, percorri a lista de entrada e adicionei a lista de retorno somente os itens não duplicados. Este foi o mais simples dos desafios.

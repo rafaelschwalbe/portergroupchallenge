@@ -135,5 +135,27 @@ namespace TestProject
             result = MathematicalExpressionChallenge.ResolveMathematicalExpression("9 * 8 - 7 * 6 + 5 * 4 - 3 * 2 + 1");//72-42+20-6+1 = 45
             Assert.AreEqual(45, result);
         }
+
+        [TestMethod]
+        public void CleanListTestMethod()
+        {
+            List<int> list = new List<int>();
+            list.Add(1);
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+            list.Add(5);
+            list.Add(6);
+            var result = CleanListChallenge.RemoveDuplicatedItems(list);
+
+            List<int> resultList = new List<int>();
+            resultList.Add(2);
+            resultList.Add(4);
+            resultList.Add(6);
+            CollectionAssert.AreEqual(resultList, result);
+        }
     }
 }
