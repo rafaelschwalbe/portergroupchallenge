@@ -117,5 +117,23 @@ namespace TestProject
             catch (OverflowException ex) { }
             catch (Exception ex) { Assert.Fail($"Deveria lançar uma ArgumentException. Foi lançada a exceção: {ex.Message}"); }
         }
+
+        [TestMethod]
+        public void MathematicalExpressionTestMethod()
+        {
+            double result = 0;
+
+            result = MathematicalExpressionChallenge.ResolveMathematicalExpression("2 + 3 * 5");
+            Assert.AreEqual(17, result);
+
+            result = MathematicalExpressionChallenge.ResolveMathematicalExpression("2 + 3 * 4 - 6 * 2");
+            Assert.AreEqual(2, result);
+
+            result = MathematicalExpressionChallenge.ResolveMathematicalExpression("1 + 2 * 3 - 4 * 5 - 6 * 7 + 8 * 9");//1+6-20-42+72 = 17
+            Assert.AreEqual(17, result);
+
+            result = MathematicalExpressionChallenge.ResolveMathematicalExpression("9 * 8 - 7 * 6 + 5 * 4 - 3 * 2 + 1");//72-42+20-6+1 = 45
+            Assert.AreEqual(45, result);
+        }
     }
 }
